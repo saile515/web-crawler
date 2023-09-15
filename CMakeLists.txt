@@ -28,11 +28,12 @@ set(PRJ_COMPILE_FEATURES cxx_std_20)
 # set #defines (test enable/disable not included here)
 set(PRJ_DEFINITIONS)
 # add all libraries used by the project (WARNING: also set them in vcpkg.json!)
-set(PRJ_LIBRARIES fmt::fmt PostgreSQL::PostgreSQL Threads::Threads)
+set(PRJ_LIBRARIES fmt::fmt libpqxx::pqxx httplib::httplib Threads::Threads)
 
 # add dependency find_package calls and similar here
 find_package(fmt CONFIG REQUIRED)
-find_package(PostgreSQL REQUIRED)
+find_package(libpqxx CONFIG REQUIRED)
+find_package(httplib CONFIG REQUIRED)
 
 # to enable multithreading and the Threads::Threads dependency
 include(FindThreads)
